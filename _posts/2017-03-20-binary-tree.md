@@ -13,11 +13,11 @@ tags:
 
 ## 二叉树的前中后序非递归遍历方式
 前序、中序、后序遍历的顺序其实指的是根结点在遍历树时候的位置；
-<pre>
+```
           左子树          右子树     
-   |                |             |
+   |                |           |
 根（前序）       根（中序）       根（后序）
-</pre>
+```
 
 
 T94. Binary Tree Inorder Traversal
@@ -217,49 +217,49 @@ T199. Binary Tree Right Side View
 T230. Kth Smallest Element in a BST
 找到二叉搜索树中第k小的数：
 ```cpp
-    int kthSmallest(TreeNode* root, int k) {
-        //解决这种问题，画一颗BST就好分析
-        int leftNodes = countNodes(root->left);
-        if(k<=leftNodes) {
-            return kthSmallest(root->left, k);
-        }
-        else if(k==leftNodes+1) {
-            return root->val;
-        }
-        else if(k>leftNodes+1){
-            return kthSmallest(root->right, k-leftNodes-1);
-        }
+int kthSmallest(TreeNode* root, int k) {
+    //解决这种问题，画一颗BST就好分析
+    int leftNodes = countNodes(root->left);
+    if(k<=leftNodes) {
+        return kthSmallest(root->left, k);
     }
-    
-    //统计树中的结点数目
-    int countNodes(TreeNode* root) {
-        if(!root) return 0;
-        return 1+countNodes(root->left)+countNodes(root->right);
+    else if(k==leftNodes+1) {
+        return root->val;
     }
+    else if(k>leftNodes+1){
+        return kthSmallest(root->right, k-leftNodes-1);
+    }
+}
+
+//统计树中的结点数目
+int countNodes(TreeNode* root) {
+    if(!root) return 0;
+    return 1+countNodes(root->left)+countNodes(root->right);
+}
 ```
 
 T236. Lowest Common Ancestor of a Binary Tree
 二叉树中两个结点的最近的公共祖先，不要深入想这个递归流程，还是将这个递归看成黑盒
 
-```c++
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if(!root)       //遍历到当前子树的时候，根结点已经为NULL
-            return NULL;
-        if(root==p||root==q)    //遍历到当前子树的时候，根结点为想要找的p或者q，返回root，表明在树的该条链路上面找到p或者q
-            return root;
-        
-        //如果遍历到当前的根结点不是p也不是q，那么需要在当前根结点的左右子树中深入查找
-        TreeNode* left=lowestCommonAncestor(root->left, p, q);
-        TreeNode* right=lowestCommonAncestor(root->right, p, q);
-        
-        //有三种情况：pq都不在左子树上(返回右子树)，pq都不在右子树上(返回左子树)，pq一个在左子树一个在右子树，那么就需要返回当前节点
-        if(!left)
-            return right;
-        if(!right)
-            return left;
-        if(left&&right)
-            return root;
-    }
+```cpp
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    if(!root)       //遍历到当前子树的时候，根结点已经为NULL
+        return NULL;
+    if(root==p||root==q)    //遍历到当前子树的时候，根结点为想要找的p或者q，返回root，表明在树的该条链路上面找到p或者q
+        return root;
+    
+    //如果遍历到当前的根结点不是p也不是q，那么需要在当前根结点的左右子树中深入查找
+    TreeNode* left=lowestCommonAncestor(root->left, p, q);
+    TreeNode* right=lowestCommonAncestor(root->right, p, q);
+    
+    //有三种情况：pq都不在左子树上(返回右子树)，pq都不在右子树上(返回左子树)，pq一个在左子树一个在右子树，那么就需要返回当前节点
+    if(!left)
+        return right;
+    if(!right)
+        return left;
+    if(left&&right)
+        return root;
+}
 ```
 
 
