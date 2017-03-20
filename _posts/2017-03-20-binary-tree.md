@@ -245,16 +245,16 @@ T236. Lowest Common Ancestor of a Binary Tree
 
 ```cpp
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if(!root)       //遍历到当前子树的时候，根结点已经为NULL
+        if(!root)       //遍历到当前子树的时候，根结点已经为NULL    
             return NULL;
-        if(root==p||root==q)    //遍历到当前子树的时候，根结点为想要找的p或者q，返回root，表明在树的该条链路上面找到p或者q
+        if(root==p||root==q)    //遍历到当前子树的时候，根结点为想要找的p或者q，返回root，表明在树的该条链路上面找到p或者q   
             return root;
         
-        //如果遍历到当前的根结点不是p也不是q，那么需要在当前根结点的左右子树中深入查找
+        //如果遍历到当前的根结点不是p也不是q，那么需要在当前根结点的左右子树中深入查找   
         TreeNode* left=lowestCommonAncestor(root->left, p, q);
         TreeNode* right=lowestCommonAncestor(root->right, p, q);
         
-        //有三种情况：pq都不在左子树上(返回右子树)，pq都不在右子树上(返回左子树)，pq一个在左子树一个在右子树，那么就需要返回当前节点
+        //有三种情况：pq都不在左子树上(返回右子树)，pq都不在右子树上(返回左子树)，pq一个在左子树一个在右子树，那么就需要返回当前节点   
         if(!left)
             return right;
         if(!right)
