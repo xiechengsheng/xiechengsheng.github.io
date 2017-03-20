@@ -4,7 +4,7 @@ title:      "Hello World"
 subtitle:   "Hello World"
 date:       2017-03-08
 author:     "xiechengsheng"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/post-bg-1.jpg"
 catalog: true
 tags:
     - blog
