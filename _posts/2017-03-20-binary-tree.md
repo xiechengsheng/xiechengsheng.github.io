@@ -19,7 +19,6 @@ tags:
 根（前序）       根（中序）       根（后序）
 ```
 
-
 T94. Binary Tree Inorder Traversal
 使用迭代的方式，中序遍历一棵树。
 步骤：1、由根节点向左子树依次查找，直到子结点不包含左子树，将经过的左子结点全部放到栈中；2、弹栈，获取栈的顶层结点，这就是中序遍历得到的第一个结点；3、因为该结点已经没有左子树，因此该节点就可以看做左子树为NULL，并且该根节点可能存在右子树的一个根节点，此时要沿着这个节点的右子树进行遍历，得到右子树的第一个子结点（也就是右子树的根节点），右子树可以以该根节点为根，重复过程1-3，对右子树进行中序遍历。
@@ -259,6 +258,21 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         return left;
     if(left&&right)
         return root;
+}
+```
+
+```python
+print 111   #注释
+print "ased" #注释
+```
+
+```c
+int main() {
+    printf("asdasd");   //注释
+    int a,b;    //注释
+    while(1) {  //注释
+        fork();//注释
+    }
 }
 ```
 
