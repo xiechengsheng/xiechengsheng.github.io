@@ -15,7 +15,7 @@ tags:
 前序、中序、后序遍历的顺序其实指的是根结点在遍历树时候的位置；
 ```
           左子树          右子树     
-   |                |              |
+   |                |               |
 根（前序）       根（中序）       根（后序）
 ```
 
@@ -216,25 +216,25 @@ T199. Binary Tree Right Side View
 T230. Kth Smallest Element in a BST
 找到二叉搜索树中第k小的数：
 ```cpp
-int kthSmallest(TreeNode* root, int k) {
-    //解决这种问题，画一颗BST就好分析
-    int leftNodes = countNodes(root->left);
-    if(k<=leftNodes) {
-        return kthSmallest(root->left, k);
+    int kthSmallest(TreeNode* root, int k) {
+        //解决这种问题，画一颗BST就好分析
+        int leftNodes = countNodes(root->left);
+        if(k<=leftNodes) {
+            return kthSmallest(root->left, k);
+        }
+        else if(k==leftNodes+1) {
+            return root->val;
+        }
+        else if(k>leftNodes+1){
+            return kthSmallest(root->right, k-leftNodes-1);
+        }
     }
-    else if(k==leftNodes+1) {
-        return root->val;
-    }
-    else if(k>leftNodes+1){
-        return kthSmallest(root->right, k-leftNodes-1);
-    }
-}
 
-//统计树中的结点数目
-int countNodes(TreeNode* root) {
-    if(!root) return 0;
-    return 1+countNodes(root->left)+countNodes(root->right);
-}
+    //统计树中的结点数目
+    int countNodes(TreeNode* root) {
+        if(!root) return 0;
+        return 1+countNodes(root->left)+countNodes(root->right);
+    }
 ```
 
 T236. Lowest Common Ancestor of a Binary Tree
@@ -261,32 +261,16 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
 }
 ```
 
-```python
-print 111   #注释
-print "ased" #注释
-```
-
-```c
-int main() {
-    printf("asdasd");   //注释
-    int a,b;    //注释
-    while(1) {  //注释
-        fork();//注释
-    }
-}
-```
-
 
 ## 总结
 1. 递归函数，参数的确定很重要，每次递归的时候只会改变参数（参数+1传递到下一层，一般参数中会含有树的深度，不要把树的深度定义为递归函数的变量，要把深度定义为参数，参数的引用增加元素等等）
 2. 终止条件的判断：
-
 ```cpp
     if(root==NULL)
         return;
     if(xxx)
         result.push_back(root->val);
-    //递归公式，向下面递归
+    //递归公式，向树的深层次递归
 ```
 
 
