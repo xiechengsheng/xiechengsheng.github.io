@@ -2,7 +2,7 @@
 layout:     post
 title:      "二叉树面试题"
 subtitle:   "二叉树"
-date:       2017-03-20
+date:       "2017-03-20"
 author:     "xiechengsheng"
 header-img: "img/post-bg-2.jpg"
 catalog: true
