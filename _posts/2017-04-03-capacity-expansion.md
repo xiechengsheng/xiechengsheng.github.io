@@ -133,6 +133,6 @@ Format specific information:
 
 
 # 参考
-[KVM虚拟化基本管理](http://www.2cto.com/os/201511/449832.html)
-[linux下 lvm 磁盘扩容](http://www.cnblogs.com/einyboy/archive/2012/05/31/2528661.html)
-[LVM XFS增加硬盘分区容量(resize2fs: Bad magic number in super-block while)](http://www.cnblogs.com/archoncap/p/5442208.html)
+[KVM虚拟化基本管理](http://www.2cto.com/os/201511/449832.html)    
+[linux下 lvm 磁盘扩容](http://www.cnblogs.com/einyboy/archive/2012/05/31/2528661.html)    
+[LVM XFS增加硬盘分区容量(resize2fs: Bad magic number in super-block while)](http://www.cnblogs.com/archoncap/p/5442208.html)    
