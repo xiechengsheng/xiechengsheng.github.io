@@ -35,25 +35,26 @@ CentOS上面由于没有现成的mysql包，因此在系统上面安装mysql数�
         mysql -u root -p
         Enter password:
         ```
-9. 登陆后将密码设置成root，首先需要修改有效密码的规则，其次再修改密码：
-```sh
-# 设置密码的规则，相当于正则表达式
-set global validate_password_policy=0;
-set global validate_password_mixed_case_count=0;
-set global validate_password_special_char_count=0;
-set global validate_password_length=4;
-set global validate_password_number_count=0;
 
-mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root');
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-```
+9. 登陆后将密码设置成root，首先需要修改有效密码的规则，其次再修改密码：    
+    ```sh
+    #设置密码的规则，相当于正则表达式
+    set global validate_password_policy=0;
+    set global validate_password_mixed_case_count=0;
+    set global validate_password_special_char_count=0;
+    set global validate_password_length=4;
+    set global validate_password_number_count=0;
+
+    mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root');
+    Query OK, 0 rows affected, 1 warning (0.00 sec)
+    ```
 
 10. 要想从远地机器远程访问本机mysql服务，使用：
-```sh
-# mysql -u root -h 192.168.3.89 -P 3306 -p
-Enter password:
-ERROR 1130 (HY000): Host 'k8s-mst' is not allowed to connect to this MySQL server
-```
+    ```sh
+    # mysql -u root -h 192.168.3.89 -P 3306 -p
+    Enter password:
+    ERROR 1130 (HY000): Host 'k8s-mst' is not allowed to connect to this MySQL server
+    ```
 
 - 发现报错，原因是因为系统数据库mysql中的user表的host是localhost，因此只能使用localhost方式登陆服务器，**将host修改成为服务器的ip**，可解决问题：
 
