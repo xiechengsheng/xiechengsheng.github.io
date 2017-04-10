@@ -74,7 +74,7 @@ Enter password:
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
 ```
 
-11. 但是，客户端（192.168.3.87）在远程登陆mysql服务器还是报错：
+- 但是，客户端（192.168.3.87）在远程登陆mysql服务器还是报错：
 ```sh
 # mysql -h 192.168.3.89 -P 3306 -p
 Enter password:
