@@ -43,6 +43,7 @@ u'cpu_stats': {u'cpu_usage': {u'usage_in_usermode': 2345890000000, u'total_usage
     - 对于 `total_usage` 与 `percpu_usage` 的关系，`percpu_usage`是物理机上每个物理核的CPU使用情况构成的数组，因为是4核，所以数组长度为4，因此`total_usage`为`percpu_usage`数组的和：`u'total_usage': 3253065851002, u'percpu_usage': [817652165400, 820700268313, 797229028908, 817484388381]`
 
 - 因此在客户端直接模仿docker stats实现的源代码实现容器状态获取的功能：
+
 ```python
 #获取磁盘blockIO：
 for bioEntry in stats_data["blkio_stats"]["io_service_bytes_recursive"]:
@@ -50,19 +51,16 @@ for bioEntry in stats_data["blkio_stats"]["io_service_bytes_recursive"]:
         blkRead += float(bioEntry["value"])
     elif bioEntry["op"] == "Write":
         blkWrite += float(bioEntry["value"])
-
 #获取CPU利用率：
 cpuPercent = 0.0
 cpuDelta = float(stats_data["cpu_stats"]["cpu_usage"]["total_usage"]) - float(stats_data["precpu_stats"]["cpu_usage"]["total_usage"])
 systemDelta = float(stats_data["cpu_stats"]["system_cpu_usage"]) - float(stats_data["precpu_stats"]["system_cpu_usage"])
 if systemDelta > 0 and cpuDelta > 0:
     cpuPercent = (cpuDelta / systemDelta) * float(len(stats_data["cpu_stats"]["cpu_usage"]["percpu_usage"])) * 100
-
 #网络IO：
 for _, value in stats_data["networks"]:
     rx += float(value["rx_bytes"])
     tx += float(value["tx_bytes"])
-
 #内存利用率：
 memUsage = float(stats_data["memory_stats"]["usage"])
 memLimit = float(stats_data["memory_stats"]["limit"])

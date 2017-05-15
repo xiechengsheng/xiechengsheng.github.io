@@ -138,13 +138,10 @@ root@hadoop-master:~# ./run-wordcount.sh
         Bytes Read=26
     File Output Format Counters
         Bytes Written=26
-
 input file1.txt:
 Hello Hadoop
-
 input file2.txt:
 Hello Docker
-
 wordcount output:
 Docker    1
 Hadoop    1
