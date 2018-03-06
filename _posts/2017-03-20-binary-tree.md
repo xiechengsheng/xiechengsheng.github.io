@@ -135,25 +135,25 @@ T226. Invert Binary Tree
 将一颗二叉树进行左右翻转：
 思路：从上到下遍历整颗二叉树，第一层不用交换，第二层的两个结点需要交换1次，第三层的子结点需要交换2次
 ```cpp
-    TreeNode* invertTree(TreeNode* root) {
-        //使用栈，相当于广度优先的方式，不断从上至下遍历这棵树
-        if(!root)
-            return root;
-        stack<TreeNode*> s;
-        s.push(root);
-        //遍历
-        while(!s.empty()) {
-            TreeNode* curr=s.top();
-            s.pop();
-            //节点存在才能将左右子结点压入栈中，不加条件判断会导致栈中永远存在空结点
-            if(curr) {
-                s.push(curr->left);
-                s.push(curr->right);
-                swap(curr->left, curr->right);
-            }
-        }
-        return root;
-    }
+TreeNode* invertTree(TreeNode* root) {
+	//使用栈，相当于广度优先的方式，不断从上至下遍历这棵树
+	if(!root)
+		return root;
+	stack<TreeNode*> s;
+	s.push(root);
+	//遍历
+	while(!s.empty()) {
+		TreeNode* curr=s.top();
+		s.pop();
+		//节点存在才能将左右子结点压入栈中，不加条件判断会导致栈中永远存在空结点
+		if(curr) {
+			s.push(curr->left);
+			s.push(curr->right);
+			swap(curr->left, curr->right);
+		}
+	}
+	return root;
+}
 
 ```
 
