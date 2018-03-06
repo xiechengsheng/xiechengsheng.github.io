@@ -241,7 +241,7 @@ T230. Kth Smallest Element in a BST
 T236. Lowest Common Ancestor of a Binary Tree
 二叉树中两个结点的最近的公共祖先，不要深入想这个递归流程，还是将这个递归看成黑盒
 
-<pre>
+```c++
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(!root)       //遍历到当前子树的时候，根结点已经为NULL
             return NULL;
@@ -260,7 +260,7 @@ T236. Lowest Common Ancestor of a Binary Tree
         if(left&&right)
             return root;
     }
-</pre>
+```
 
 
 ## 总结
