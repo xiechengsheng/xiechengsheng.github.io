@@ -95,5 +95,5 @@ FLUSH PRIVILEGES;
 # 参考
 [CentOS 7.2 安装MySQL 5.7](http://jingyan.baidu.com/article/455a9950448580a166277887.html)    
 [mysql5.7设置简单密码报错ERROR 1819 (HY000): Your password does not satisfy the current policy requirements](http://blog.csdn.net/kuluzs/article/details/51924374)    
-[mysql远程连接：ERROR 1130 (HY000): Host ‘*.*.*.*’ is not allowed to connect to this MySQL](http://www.th7.cn/db/mysql/201606/191057.shtml)
+[mysql远程连接：ERROR 1130 (HY000): Host ‘*.*.*.*’ is not allowed to connect to this MySQL](http://www.th7.cn/db/mysql/201606/191057.shtml)     
 [报错:1130-host ... is not allowed to connect to this MySql server 开放mysql远程连接 不使用localhost](http://www.cnblogs.com/xyzdw/archive/2011/08/11/2135227.html)
