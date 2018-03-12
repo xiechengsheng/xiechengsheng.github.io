@@ -33,20 +33,17 @@ hostname     # 发现容器id和some-docker的id不一样，表示已经进入�
 ```sh
 #拉取镜像，这里拉取的别人的精简版hadoop镜像，没有使用官网镜像，该镜像的初始版本还得过奖
 sudo docker pull kiwenlau/hadoop:1.0
-
 #下载启动hadoop容器集群源码：
 git clone https://github.com/kiwenlau/hadoop-cluster-docker
 cd hadoop-cluster-docker/
-
 #创建docker网络，目的是为了hadoop的master和slave可以使用这个网络，进行服务发现，相当于DNS服务器
 sudo docker network create --driver=bridge hadoop
-
 #运行docker容器：
 ./start-container.sh
-
 #进入到hadoop-master容器中，启动hadoop：
 ./start-hadoop.sh
 ```
+
 - 启动hadoop集群后的输出信息：
 ```sh
 Starting namenodes on [hadoop-master]
