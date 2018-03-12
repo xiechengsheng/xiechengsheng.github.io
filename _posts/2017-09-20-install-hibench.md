@@ -24,18 +24,14 @@ tags:
 2. Maven：
 ```
 下载maven包：wget http://apache.fayea.com/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.zip
-
 解压：unzip apache-maven-3.5.0-bin.zip -d /usr/local/
-
 设置环境变量：
 vim .bashrc， 在.bashrc中添加Maven的PATH：
 # set maven environment
 export M3_HOME=/usr/local/apache-maven-3.5.0
 export PATH=$M3_HOME/bin:$PATH
-
 更新环境变量：
 source .bashrc
-
 测试Maven环境：
 mvn -v
 ```
@@ -44,7 +40,6 @@ mvn -v
 ```
 git clone https://github.com/intel-hadoop/HiBench
 cd HiBench
-
 # 安装测试hadoop框架下面的sql模块：
 mvn -Phadoopbench -Dmodules -Psql -Dscala=2.11 clean package
 ```
@@ -85,10 +80,8 @@ hibench.hadoop.release    apache
 ```
 # The definition of these profiles can be found in the workload's conf file i.e. con/workloads/micro/wordcount.conf
 hibench.scale.profile                  tiny
-
 # Mapper number in hadoop, partition number in Spark
 hibench.default.map.parallelism         8
-
 # Reducer nubmer in hadoop, shuffle partition number in Spark
 hibench.default.shuffle.parallelism     8
 ```

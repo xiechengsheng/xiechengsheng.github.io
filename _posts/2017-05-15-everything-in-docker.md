@@ -29,7 +29,7 @@ hostname     # 发现容器id和some-docker的id不一样，表示已经进入�
 - 之后可以重复这个过程，也就是说只要你愿意可以建立多层docker in docker~
 
 # hadoop on docker
-- 大象在鲸鱼上跳舞~
+- 大象在鲸鱼上跳舞：
 ```sh
 #拉取镜像，这里拉取的别人的精简版hadoop镜像，没有使用官网镜像，该镜像的初始版本还得过奖
 sudo docker pull kiwenlau/hadoop:1.0
