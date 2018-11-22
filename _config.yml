@@ -1,6 +1,6 @@
 # Site settings
-title: XieChengSheng Blog
-SEOTitle: XieChengSheng Blog
+title: Xie同学的小本本
+SEOTitle: Xie同学的小本本
 header-img: img/home-bg.jpg
 description: "Talk is cheap, show me your code~"
 url: ""              # your host, for absolute URL
@@ -42,7 +42,7 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: xiechengsheng blog
+duoshuo_username: Xie同学的小本本
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
